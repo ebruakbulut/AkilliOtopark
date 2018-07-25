@@ -1,1 +1,1 @@
-# AkilliOtopark
+In my smart parking system, there are magnetic sensors placed under the car perk sites. The locations of these sensors are shown on the mobile. it is seen that the sensor at which position is full when it comes to the car sensor. Thus, it is known that the number of parking lots is full without reaching the parking lot.
