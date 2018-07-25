@@ -1,0 +1,27 @@
+clear;
+clc;
+a=arduino('COM6','UNO');
+
+
+for i=1:25
+    
+mnytk(i)=readDigitalPin(a,5); 
+a.configureDigitalPin(6,'Output'); % set pin 13 to Output
+if(mnytk(i)==1)
+    a.writeDigitalPin(6,0); % turn LED off
+    pause(0.001); % pause for 1 second
+else
+    a.writeDigitalPin(6,1); % turn LED on
+    pause(0.001); % pause for 1 second
+end
+fprintf('mnytk=%f',mnytk(i));
+drawnow;
+plot(mnytk,'r--','linewidth',3)
+drawnow;
+grid on;
+hold on;
+title('Sensör Verisi');
+xlabel('Zaman');
+ylabel('Deðer');
+pause(0.1);
+end

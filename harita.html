@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+
+   <meta charset="UTF-8">
+   <title>OTOPARKIM</title>
+   
+   <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBR8scKO-FDd6hFeq7vo5M69aglp334kNM&sensor=false"></script>
+   <script type="text/javascript">
+   function getMapCoords(){
+      
+         
+         navigator.geolocation.getCurrentPosition(function(pos){
+            
+            var enlem = 38.676155, 
+               boylam = 39.225232;
+            
+            /**
+             * Harita Ayarları
+             */
+            var haritaAyarlari = {
+               center: new google.maps.LatLng (enlem, boylam),
+               zoom: 18
+            };
+            document.getElementById("harita").style.display = 'block';
+            var harita = new google.maps.Map(document.getElementById("harita"), haritaAyarlari);
+            
+            /**
+             * Bulunduğumuz Yeri İşaretleyelim
+             */
+            var marker = new google.maps.Marker({
+               position: harita.getCenter(),
+               map: harita,
+               title: 'Elazığ Otopark'
+            });
+            
+         });
+
+      } 
+   </script>
+   
+</head>
+<body>
+
+<div id="harita" style="display: none; width: 500px; height: 300px; background: #eee"></div>
+<button onclick="getMapCoords()">Otoparkı Göster</button>
+
+</body>
+</html>
